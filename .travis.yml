@@ -6,4 +6,4 @@ before_install:
   - docker build -t codeshifu/react-docker -f Dockerfile.dev .
 
 script:
-  - docker run codeshifu/react-docker npm run test -- --coverage
+  - docker run codeshifu/react-docker npm run test -- --coverage --watchAll=false
