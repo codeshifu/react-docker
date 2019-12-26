@@ -7,3 +7,17 @@ before_install:
 
 script:
   - docker run codeshifu/react-docker npm run test -- --coverage --watchAll=false
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "react-docker"
+  env: "ReactDocker-env"
+  bucket_name: "elasticbeanstalk-us-west-2-342707463620"
+  bucket_path: "react-docker"
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
